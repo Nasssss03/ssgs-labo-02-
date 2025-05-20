@@ -1,3 +1,6 @@
+#!/usr/bin/env node
+
+const { program } = require('commander');
 const {
     reverseString,
     isPalindrome,
@@ -5,52 +8,49 @@ const {
     countCharacters,
 } = require('./src/stringUtils');
 
-// Otteniamo gli argomenti dalla riga di comando
-// process.argv[0] è 'node', process.argv[1] è il percorso dello script
-const args = process.argv.slice(2);
+program
+    .name('labo-string')
+    .description('CLI utility for string manipulation operations')
+    .version('1.0.0');
 
-if (args.length < 2) {
-    console.error("Utilizzo: node index.js <numero_funzione> <stringa_input> [parametro_aggiuntivo]");
-    console.error("Numero funzione:");
-    console.error("  1: Inverti Stringa (reverseString)");
-    console.error("  2: Controlla Palindromo (isPalindrome)");
-    console.error("  3: Tronca Stringa (truncateString) - richiede [lunghezza_massima]");
-    console.error("  4: Conta Caratteri (countCharacters)");
-    process.exit(1); // Esce con codice di errore
-}
+program
+    .command('reverse')
+    .description('Reverse a string')
+    .argument('<string>', 'string to reverse')
+    .action((str) => {
+        console.log(reverseString(str));
+    });
 
-const functionChoice = parseInt(args[0], 10);
-const mainString = args[1];
-let result;
+program
+    .command('palindrome')
+    .description('Check if a string is a palindrome')
+    .argument('<string>', 'string to check')
+    .action((str) => {
+        const result = isPalindrome(str);
+        console.log(`"${str}" is ${result ? '' : 'not '}a palindrome`);
+    });
 
-switch (functionChoice) {
-    case 1: // reverseString
-        result = reverseString(mainString);
-        console.log(`Stringa invertita: "${result}"`);
-        break;
-    case 2: // isPalindrome
-        result = isPalindrome(mainString);
-        console.log(`La stringa "${mainString}" è palindroma? ${result}`);
-        break;
-    case 3: // truncateString
-        if (args.length < 3) {
-            console.error("Per la funzione 'Tronca Stringa' (3), è necessaria una lunghezza massima.");
-            console.error("Utilizzo: node index.js 3 <stringa_input> <lunghezza_massima>");
-            process.exit(1);
-        }
-        const maxLength = parseInt(args[2], 10);
-        if (isNaN(maxLength) || maxLength < 0) {
-            console.error("La lunghezza massima per troncare deve essere un numero positivo.");
-            process.exit(1);
-        }
-        result = truncateString(mainString, maxLength);
-        console.log(`Stringa troncata (max ${maxLength}): "${result}"`);
-        break;
-    case 4: // countCharacters
-        result = countCharacters(mainString);
-        console.log(`Conteggio caratteri per "${mainString}":`, result);
-        break;
-    default:
-        console.error(`Numero funzione non valido: ${functionChoice}. Scegliere un numero da 1 a 4.`);
-        process.exit(1);
-}
+program
+    .command('truncate')
+    .description('Truncate a string to specified length')
+    .argument('<string>', 'string to truncate')
+    .argument('<length>', 'maximum length', parseInt)
+    .action((str, length) => {
+        console.log(truncateString(str, length));
+    });
+
+program
+    .command('count')
+    .description('Count character occurrences in a string')
+    .argument('<string>', 'string to analyze')
+    .action((str) => {
+        const counts = countCharacters(str);
+        console.log('Character counts:');
+        Object.entries(counts)
+            .sort(([a], [b]) => a.localeCompare(b))
+            .forEach(([char, count]) => {
+                console.log(`  ${char}: ${count}`);
+            });
+    });
+
+program.parse();
