@@ -7,7 +7,7 @@
     "labo-string": "./index.js"
   },
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=18.0.0"
   },
   "scripts": {
     "start": "node index.js",
@@ -16,7 +16,7 @@
     "test:coverage": "jest --coverage"
   },
   "keywords": ["cli", "string", "utility", "nodejs"],
-  "author": "",
+  "author": "Nassim <nassim@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "commander": "^11.1.0"
