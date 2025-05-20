@@ -134,4 +134,4 @@ This project is licensed under the ISC License. See the [LICENSE](./LICENSE) fil
 
 ---
 
-**Author:** Nassim (<nassim@gmail.com>)
+**Author:** Nassim (<nsmsbr03@gmail.com>)
