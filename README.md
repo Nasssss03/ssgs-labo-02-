@@ -47,13 +47,13 @@ npm start
 ### Esecuzione dei Test
 
 ```bash
-# Esegui tutti i test
+
 npm test
 
-# Esegui i test in modalità watch
+
 npm run test:watch
 
-# Genera report di coverage
+
 npm run test:coverage
 ```
 
@@ -62,7 +62,7 @@ npm run test:coverage
 1. Crea un fork del repository
 2. Crea un branch per la tua feature (`git checkout -b feature/AmazingFeature`)
 3. Committa le tue modifiche (`git commit -m 'Add some AmazingFeature'`)
-4. Pusha al branch (`git push origin feature/AmazingFeature`)
+4. Push al branch (`git push origin feature/AmazingFeature`)
 5. Apri una Pull Request
 
 ## Licenza
