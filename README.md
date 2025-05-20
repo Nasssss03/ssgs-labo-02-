@@ -1,70 +1,137 @@
-# Labo-String: CLI per Utilità su Stringhe
+# Labo-String
 
-Una Command-Line Interface (CLI) Node.js che offre diverse utilità per la manipolazione di stringhe.
+[![Node.js CI](https://github.com/Nasssss03/ssgs-labo-02-/actions/workflows/ci.yml/badge.svg)](https://github.com/Nasssss03/ssgs-labo-02-/actions)
+[![Coverage Status](https://img.shields.io/badge/coverage-100%25-brightgreen.svg)](./coverage/lcov-report/index.html)
 
-## Funzionalità
+A professional, extensible CLI tool for advanced string manipulation, built with Node.js.
 
-* Inversione di una stringa
-* Verifica se una stringa è palindroma
-* Troncamento di una stringa a una lunghezza massima specificata
-* Conteggio delle occorrenze di ciascun carattere in una stringa
+---
 
-## Prerequisiti
+## Table of Contents
 
-* Node.js (versione 14 o superiore)
-* npm (incluso con Node.js)
+- [Features](#features)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Available Commands](#available-commands)
+- [Testing](#testing)
+- [Development](#development)
+- [Contributing](#contributing)
+- [License](#license)
 
-## Installazione
+---
 
-1. Clona il repository:
+## Features
+
+- **Reverse** a string
+- **Check** if a string is a palindrome
+- **Truncate** a string to a specified length
+- **Count** character occurrences in a string
+- 100% test coverage with Jest
+- Modern CLI experience with [commander](https://www.npmjs.com/package/commander)
+
+---
+
+## Prerequisites
+
+- [Node.js](https://nodejs.org/) (version 18 or higher)
+- [npm](https://www.npmjs.com/) (comes with Node.js)
+
+---
+
+## Installation
+
+Clone the repository and install dependencies:
+
 ```bash
-git clone <repository-url>
-cd labo-string
-```
-
-2. Installa le dipendenze:
-```bash
+git clone https://github.com/Nasssss03/ssgs-labo-02-.git
+cd ssgs-labo-02-
 npm install
 ```
 
-## Utilizzo
+---
 
-Per eseguire l'applicazione:
+## Usage
+
+Run the CLI with:
 
 ```bash
-npm start
+npm start -- <command> [arguments]
 ```
 
-### Comandi Disponibili
-
-* `reverse <string>` - Inverte la stringa fornita
-* `palindrome <string>` - Verifica se la stringa è palindroma
-* `truncate <string> <length>` - Tronca la stringa alla lunghezza specificata
-* `count <string>` - Conta le occorrenze di ciascun carattere nella stringa
-
-## Sviluppo
-
-### Esecuzione dei Test
+Or, if installed globally:
 
 ```bash
+labo-string <command> [arguments]
+```
 
+---
+
+## Available Commands
+
+- `reverse <string>`  
+  _Reverse the provided string._
+
+- `palindrome <string>`  
+  _Check if the string is a palindrome._
+
+- `truncate <string> <length>`  
+  _Truncate the string to the specified length._
+
+- `count <string>`  
+  _Count the occurrences of each character in the string._
+
+**Examples:**
+```bash
+npm start -- reverse "hello"
+npm start -- palindrome "racecar"
+npm start -- truncate "hello world" 5
+npm start -- count "banana"
+```
+
+---
+
+## Testing
+
+Run all tests:
+```bash
 npm test
+```
 
-
+Run tests in watch mode:
+```bash
 npm run test:watch
+```
 
-
+Generate a coverage report:
+```bash
 npm run test:coverage
 ```
+Coverage reports are available in the `coverage/` directory.
 
-## Contribuire
+---
 
-1. Crea un fork del repository
-2. Crea un branch per la tua feature (`git checkout -b feature/AmazingFeature`)
-3. Committa le tue modifiche (`git commit -m 'Add some AmazingFeature'`)
-4. Push al branch (`git push origin feature/AmazingFeature`)
-5. Apri una Pull Request
+## Development
 
-## Licenza
+- Source code: [`src/`](./src)
+- Tests: [`src/__tests__/`](./src/__tests__)
 
-Questo progetto è distribuito con licenza ISC. Vedi il file `LICENSE` per maggiori dettagli.
+---
+
+## Contributing
+
+1. Fork the repository
+2. Create a new branch (`git checkout -b feature/my-feature`)
+3. Commit your changes (`git commit -m 'Add my feature'`)
+4. Push to your branch (`git push origin feature/my-feature`)
+5. Open a Pull Request
+
+---
+
+## License
+
+This project is licensed under the ISC License. See the [LICENSE](./LICENSE) file for details.
+
+---
+
+**Author:** Nassim (<nassim@gmail.com>)
