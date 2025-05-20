@@ -24,6 +24,7 @@ function isPalindrome(str) {
  * @returns {string} - La stringa troncata.
  */
 function truncateString(str, maxLength) {
+    if (maxLength <= 0) return '...';
     if (str.length <= maxLength) return str;
     return str.slice(0, maxLength) + '...';
 }
