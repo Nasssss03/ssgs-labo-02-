@@ -14,7 +14,7 @@ jobs:
   test-and-coverage:
     name: Run Tests and Generate Coverage
     runs-on: ubuntu-latest
- feature/ci-workflow-coverage
+      feature/ci-workflow-coverage
     
     steps:
       - name: Checkout repository
